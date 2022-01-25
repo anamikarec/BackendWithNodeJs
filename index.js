@@ -6,6 +6,7 @@ var http = require('http')
 //create a server object:
 const server = http.createServer((req,res)=>{
     try{
+        throw new Error("Error");
         res.writeHead(200,{'Content-Type': 'application/json'});
         res.end(JSON.stringify({
            data:"Hello Anamika!" 
