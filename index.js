@@ -5,6 +5,7 @@ const server = http.createServer((req,res)=>{
     try{
         console.log(req.method,req.url);
         const [url, query] = req.url.split("?");
+        // BEFORE ? IT WILL BE ADDED TO URL AND AFTER ? IT WILL BE ADDED TO QUERY
         if(url === '/users'){
             if(req.method === 'GET'){
                 const q = new URLSearchParams(`?${query}`);
