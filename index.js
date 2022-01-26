@@ -7,8 +7,10 @@ const server = http.createServer((req,res)=>{
         const [url, query] = req.url.split("?");
         if(url === '/users'){
             if(req.method === 'GET'){
+                const q = new URLSearchParams(`?${query}`);
+                const page = q.get('page') ?? 1;
                 res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end(JSON.stringify(getAllUsers()));
+                res.end(JSON.stringify(getAllUsers(Number(page))));
             }
             else if(req.method === 'POST'){
             console.log(url,query);
